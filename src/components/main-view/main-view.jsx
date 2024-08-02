@@ -1,20 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from'axios';
 import MovieCard from '../movie-card/movie-card';
 import MovieView from '../movie-view/movie-view';
+import PropTypes from 'prop-types';
 
 
-import inceptionPoster from '../../images/inception.jpg';
+/*import inceptionPoster from '../../images/inception.jpg';
 import interstellarPoster from '../../images/interstellar.jpg';
-import darkKnightPoster from '../../images/dark-knight.jpg';
+import darkKnightPoster from '../../images/dark-knight.jpg';*/
 
 const MainView = () => {
-  const [movies] = useState([
-    { id: 1, title: 'Inception', description: 'A mind-bending thriller', genre: 'Sci-Fi', director: 'Christopher Nolan', poster: inceptionPoster },
-    { id: 2, title: 'Interstellar', description: 'A journey through space', genre: 'Sci-Fi', director: 'Christopher Nolan', poster: interstellarPoster },
-    { id: 3, title: 'The Dark Knight', description: 'A Batman tale', genre: 'Action', director: 'Christopher Nolan', poster: darkKnightPoster },
-  ]);
+  const [movies, setMovies] = useState([]);
 
   const [selectedMovie, setSelectedMovie] = useState(null);
+useEffect(() => {
+  const token = localStorage.getItem('token');
+  axios.get(' https://glacial-retreat-35130-2f56298b8e37.herokuapp.com/movies', {
+    headers: { Authorization: `Bearer ${token}`}
+  })
+    .then(response => {
+      setMovies(response.data);
+    })
+    .catch(error => {
+      console.error('There was an error fetching the movies!', error);
+    });
+}, []);
 
   return (
     <div>
@@ -27,6 +37,20 @@ const MainView = () => {
       )}
     </div>
   );
+};
+// MainView component here
+
+MainView.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
+    director: PropTypes.string.isRequired,
+    poster: PropTypes.string,
+  })),
+  selectedMovie: PropTypes.object,
+  setSelectedMovie: PropTypes.func,
 };
 
 export default MainView;
