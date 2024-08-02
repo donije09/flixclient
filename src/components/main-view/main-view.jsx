@@ -19,7 +19,12 @@ useEffect(() => {
     headers: { Authorization: `Bearer ${token}`}
   })
     .then(response => {
-      setMovies(response.data);
+      const fetchedMovies = response.data.map(movie => ({
+        ...movie,
+        genre: movie.genre.name || 'unknown genre', // assuming genre is an object with a name property
+        description: movie.description || 'No description available' // Ensure description is provided
+      }));
+      setMovies(fetchedMovies);
     })
     .catch(error => {
       console.error('There was an error fetching the movies!', error);
@@ -32,7 +37,7 @@ useEffect(() => {
         <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
       ) : (
         movies.map(movie => (
-          <MovieCard key={movie.id} movie={movie} onMovieClick={(newSelectedMovie) => setSelectedMovie(newSelectedMovie)} />
+          <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => setSelectedMovie(newSelectedMovie)} />
         ))
       )}
     </div>
