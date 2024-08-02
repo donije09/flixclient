@@ -5774,6 +5774,20 @@ MainView.propTypes = {
     selectedMovie: (0, _propTypesDefault.default).object,
     setSelectedMovie: (0, _propTypesDefault.default).func
 };
+const handleLogout = ()=>{
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    window.location.reload();
+};
+// In your render method:
+/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+    onClick: handleLogout,
+    children: "Logout"
+}, void 0, false, {
+    fileName: "src/components/main-view/main-view.jsx",
+    lineNumber: 62,
+    columnNumber: 1
+}, undefined);
 exports.default = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
