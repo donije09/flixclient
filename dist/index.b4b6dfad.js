@@ -5732,7 +5732,12 @@ import darkKnightPoster from '../../images/dark-knight.jpg';*/ const MainView = 
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
-            setMovies(response.data);
+            const fetchedMovies = response.data.map((movie)=>({
+                    ...movie,
+                    genre: movie.genre.name || "unknown genre",
+                    description: movie.description || "No description available" // Ensure description is provided
+                }));
+            setMovies(fetchedMovies);
         }).catch((error)=>{
             console.error("There was an error fetching the movies!", error);
         });
@@ -5743,19 +5748,19 @@ import darkKnightPoster from '../../images/dark-knight.jpg';*/ const MainView = 
             onBackClick: ()=>setSelectedMovie(null)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 32,
+            lineNumber: 37,
             columnNumber: 9
         }, undefined) : movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCardDefault.default), {
                 movie: movie,
                 onMovieClick: (newSelectedMovie)=>setSelectedMovie(newSelectedMovie)
-            }, movie.id, false, {
+            }, movie._id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 35,
+                lineNumber: 40,
                 columnNumber: 11
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 30,
+        lineNumber: 35,
         columnNumber: 5
     }, undefined);
 };

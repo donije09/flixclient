@@ -23,7 +23,7 @@
 79C:\Users\ustin\Desktop\flixclient\node_modules\type-fest\source\promisable.d.ts133667677089140254 0
 78C:\Users\ustin\Desktop\flixclient\node_modules\caniuse-lite\data\regions\BD.js133667677091185383 0
 68C:\Users\ustin\Desktop\flixclient\node_modules\has-flag\package.json133667677083808548 0
-72C:\Users\ustin\Desktop\flixclient\src\components\main-view\main-view.jsx133670694349181994 0
+72C:\Users\ustin\Desktop\flixclient\src\components\main-view\main-view.jsx133670739792721158 0
 57C:\Users\ustin\Desktop\flixclient\node_modules\micromatch133667677084860898 1
 74C:\Users\ustin\Desktop\flixclient\src\components\movie-view\movie-view.jsx133670685918645009 0
 63C:\Users\ustin\Desktop\flixclient\node_modules\ieee754\index.js133670682243109473 0
@@ -194,7 +194,7 @@
 107C:\Users\ustin\Desktop\flixclient\node_modules\htmlnano\docs\versioned_docs\version-1.1.1\060-contribute.md133667677091559576 0
 80C:\Users\ustin\Desktop\flixclient\node_modules\@swc\helpers\cjs\_ts_decorate.cjs133667677091958511 0
 91C:\Users\ustin\Desktop\flixclient\node_modules\@swc\helpers\esm\_interop_require_default.js133667677093280143 0
-38C:\Users\ustin\Desktop\flixclient\dist133670694350725526 1
+38C:\Users\ustin\Desktop\flixclient\dist133670739794297395 1
 75C:\Users\ustin\Desktop\flixclient\node_modules\electron-to-chromium\LICENSE133667677083808548 0
 82C:\Users\ustin\Desktop\flixclient\node_modules\caniuse-lite\data\regions\alt-oc.js133667677088641585 0
 54C:\Users\ustin\Desktop\flixclient\node_modules\mime-db133670670163522040 1
@@ -6239,5 +6239,5 @@
 65C:\Users\ustin\Desktop\flixclient\dist\flixclient.59712999.js.map133667662734242524 0
 61C:\Users\ustin\Desktop\flixclient\dist\inception.936a9721.jpg133667685908736708 0
 64C:\Users\ustin\Desktop\flixclient\dist\interstellar.deca7abd.jpg133667685908691679 0
-56C:\Users\ustin\Desktop\flixclient\dist\index.b4b6dfad.js133670694350615819 0
-60C:\Users\ustin\Desktop\flixclient\dist\index.b4b6dfad.js.map133670694350715548 0
+56C:\Users\ustin\Desktop\flixclient\dist\index.b4b6dfad.js133670739794182644 0
+60C:\Users\ustin\Desktop\flixclient\dist\index.b4b6dfad.js.map133670739794287423 0
