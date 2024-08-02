@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "buffer": "^6.0.3",
     "parcel": "^2.12.0",
     "process": "^0.11.10"
   },
@@ -17,6 +18,7 @@
     "abortcontroller-polyfill": "^1.7.5",
     "ansi-styles": "^4.3.0",
     "argparse": "^2.0.1",
+    "axios": "^1.7.3",
     "base-x": "^3.0.10",
     "boolbase": "^1.0.0",
     "braces": "^3.0.3",
@@ -85,6 +87,7 @@
     "posthtml": "^0.16.6",
     "posthtml-parser": "^0.10.2",
     "posthtml-render": "^3.0.0",
+    "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-error-overlay": "^6.0.9",
