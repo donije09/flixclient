@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Button, Form, Card } from 'react-bootstrap';
-import { MovieCard } from './movie-card/movie-card';
-import { LoginView } from './login-view/login-view';
-import { SignupView } from './signup-view/signup-view';
+import { MovieCard } from '../movie-card/movie-card';
+import { LoginView } from '../login-view/login-view';
+import { SignupView } from '../signup-view/signup-view';
 
 export const MainView = () => {
   const [movies, setMovies] = useState([]);
