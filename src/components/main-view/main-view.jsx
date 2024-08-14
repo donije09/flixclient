@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-<<<<<<< HEAD
 import { Container, Row, Col } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { MovieCard } from '../movie-card/movie-card';
@@ -9,20 +8,10 @@ import { LoginView } from '../login-view/login-view';
 import { SignupView } from '../signup-view/signup-view';
 import { ProfileView } from '../profile-view/profile-view';
 import { NavigationBar } from '../navigation-bar/navigation-bar';
-=======
-import { Container, Row, Col, Button, Form, Card } from 'react-bootstrap';
-import { MovieCard } from '../movie-card/movie-card';
-import { LoginView } from '../login-view/login-view';
-import { SignupView } from '../signup-view/signup-view';
->>>>>>> 8d4870a4bc2a956558a7b4a9889d194a65dd53a9
 
 export const MainView = () => {
   const [movies, setMovies] = useState([]);
   const [user, setUser] = useState(null);
-<<<<<<< HEAD
-=======
-  const [isSignup, setIsSignup] = useState(false);
->>>>>>> 8d4870a4bc2a956558a7b4a9889d194a65dd53a9
 
   useEffect(() => {
     if (user) {
@@ -35,7 +24,6 @@ export const MainView = () => {
   }, [user]);
 
   const handleLogin = (username, password) => {
-<<<<<<< HEAD
     axios.post('https://glacial-retreat-35130-2f56298b8e37.herokuapp.com/login', {
       username,
       password
@@ -54,14 +42,6 @@ export const MainView = () => {
       console.error('Login error:', error);
       alert('Login failed. Please check your username and password.');
     });
-=======
-    axios.post('https://glacial-retreat-35130-2f56298b8e37.herokuapp.com/login', { username, password })
-      .then(response => {
-        setUser(response.data.user);
-        localStorage.setItem('token', response.data.token);
-      })
-      .catch(error => console.error('Login error:', error));
->>>>>>> 8d4870a4bc2a956558a7b4a9889d194a65dd53a9
   };
 
   const handleSignup = (user) => {
@@ -75,7 +55,6 @@ export const MainView = () => {
   const handleLogout = () => {
     setUser(null);
     localStorage.removeItem('token');
-<<<<<<< HEAD
     localStorage.removeItem('user');
   };
 
@@ -142,40 +121,5 @@ export const MainView = () => {
         </Routes>
       </Container>
     </Router>
-=======
-  };
-
-  if (!user) {
-    return (
-      <Container>
-        <Row className="justify-content-md-center">
-          <Col md={8}>
-            {isSignup ? (
-              <SignupView onSignup={handleSignup} onSwitchToLogin={() => setIsSignup(false)} />
-            ) : (
-              <LoginView onLogin={handleLogin} onSwitchToSignup={() => setIsSignup(true)} />
-            )}
-          </Col>
-        </Row>
-      </Container>
-    );
-  }
-
-  return (
-    <Container>
-      <Row className="mb-4">
-        <Col>
-          <Button variant="primary" onClick={handleLogout}>Logout</Button>
-        </Col>
-      </Row>
-      <Row>
-        {movies.map(movie => (
-          <Col key={movie._id} md={4} className="mb-4">
-            <MovieCard movie={movie} />
-          </Col>
-        ))}
-      </Row>
-    </Container>
->>>>>>> 8d4870a4bc2a956558a7b4a9889d194a65dd53a9
   );
 };

@@ -10,10 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-<<<<<<< HEAD
     "@parcel/transformer-sass": "^2.12.0",
-=======
->>>>>>> 8d4870a4bc2a956558a7b4a9889d194a65dd53a9
     "buffer": "^6.0.3",
     "parcel": "^2.12.0",
     "process": "^0.11.10"
@@ -25,10 +22,7 @@
     "axios": "^1.7.3",
     "base-x": "^3.0.10",
     "boolbase": "^1.0.0",
-<<<<<<< HEAD
     "bootstrap": "^5.3.3",
-=======
->>>>>>> 8d4870a4bc2a956558a7b4a9889d194a65dd53a9
     "braces": "^3.0.3",
     "browserslist": "^4.23.2",
     "callsites": "^3.1.0",
@@ -97,17 +91,11 @@
     "posthtml-render": "^3.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
-<<<<<<< HEAD
     "react-bootstrap": "^2.10.4",
     "react-dom": "^18.3.1",
     "react-error-overlay": "^6.0.9",
     "react-refresh": "^0.9.0",
     "react-router-dom": "^6.26.0",
-=======
-    "react-dom": "^18.3.1",
-    "react-error-overlay": "^6.0.9",
-    "react-refresh": "^0.9.0",
->>>>>>> 8d4870a4bc2a956558a7b4a9889d194a65dd53a9
     "regenerator-runtime": "^0.13.11",
     "resolve-from": "^4.0.0",
     "safe-buffer": "^5.2.1",
