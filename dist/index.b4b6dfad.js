@@ -10666,7 +10666,7 @@ exports.default = {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "VERSION", ()=>VERSION);
-const VERSION = "1.7.3";
+const VERSION = "1.7.4";
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"45wzn":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
