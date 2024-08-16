@@ -1,32 +1,42 @@
-import React, { useState, useEffect } from 'react';
-import { Button, Form, Row, Col } from 'react-bootstrap';
+import React, { useState } from 'react';
+import axios from 'axios';
+import { Form, Button, Row, Col } from 'react-bootstrap';
 import { MovieCard } from '../movie-card/movie-card';
 
-export const ProfileView = ({ user, movies = [], onFavorite, onRemoveFavorite }) => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [birthday, setBirthday] = useState("");
+export const ProfileView = ({ user, setUser, movies, onFavorite, onRemoveFavorite }) => {
+  const [username, setUsername] = useState(user.username);
+  const [email, setEmail] = useState(user.email);
+  const [password, setPassword] = useState('');
+  const [birthday, setBirthday] = useState(user.birthday);
 
-  useEffect(() => {
-    if (user) {
-      setUsername(user.username || "");
-      setEmail(user.email || "");
-      setBirthday(user.birthday || "");
-    }
-  }, [user]);
+  const handleUpdate = (event) => {
+    event.preventDefault();
 
-  const handleUpdate = (e) => {
-    e.preventDefault();
-    onUpdateUser({ username, email, password, birthday });
+    const token = localStorage.getItem('token');
+    const updatedUser = {
+      username,
+      email,
+      password,
+      birthday
+    };
+
+    axios.put(`https://glacial-retreat-35130-2f56298b8e37.herokuapp.com/users/${user.username}`, updatedUser, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    .then(response => {
+      setUser(response.data);
+      localStorage.setItem('user', JSON.stringify(response.data));
+      alert('Profile updated successfully!');
+    })
+    .catch(error => console.error('Error updating user:', error));
   };
 
   if (!user) {
     return <h1>LOGIN AGAIN</h1>; // Handle the case where user is null
   }
 
-  const favoriteMovies = Array.isArray(user.favoriteMovies) 
-    ? movies.filter(m => user.favoriteMovies.includes(m._id)) 
+  const favoriteMovies = Array.isArray(user.favoriteMovies)
+    ? movies.filter(m => user.favoriteMovies.includes(m._id))
     : [];
 
   return (
