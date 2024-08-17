@@ -7,7 +7,7 @@ export const LoginView = ({ onLogin, onSwitchToSignup }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onLogin(username, password);
+    onLogin(username,password);
   };
 
   return (
@@ -30,6 +30,7 @@ export const LoginView = ({ onLogin, onSwitchToSignup }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          autocomplete="current-password"
         />
       </Form.Group>
 
