@@ -10,13 +10,15 @@ import { ProfileView } from '../profile-view/profile-view';
 import { NavigationBar } from '../navigation-bar/navigation-bar';
 
 export const MainView = () => {
+  const storedUser = JSON.parse(localStorage.getItem('user'));
+  const storedToken = localStorage.getItem('token');
+  
   const [movies, setMovies] = useState([]);
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
 
   useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem('user'));
-    const storedToken = localStorage.getItem('token');
+
 
     if (storedUser && storedToken) {
       setUser(storedUser);
@@ -65,8 +67,10 @@ export const MainView = () => {
 
   const handleLogout = () => {
     setUser(null);
+    setToken(null);
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    window.location.href ="/login";
   };
 
   const onFavorite = (movieId) => {
@@ -129,7 +133,17 @@ export const MainView = () => {
                 <Navigate to="/login" replace />
               )
             } />
-            <Route path="/login" element={<LoginView onLogin={handleLogin} />} />
+            <Route path="/login" element={
+                            user ? (
+                              <Navigate to="/" />
+                            )  :  (
+                              <Col md={5}>
+                                <LoginView
+                                  onLogin={handleLogin}
+                                />
+                              </Col>
+                            )
+            } />
             <Route path="/signup" element={<SignupView onSignup={handleSignup} />} />
             <Route path="/movies/:movieId" element={
               user ? (

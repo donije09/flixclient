@@ -30,6 +30,7 @@ export const LoginView = ({ onLogin, onSwitchToSignup }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          autocomplete="current-password"
         />
       </Form.Group>
 
