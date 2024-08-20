@@ -16,10 +16,9 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
+  const [selectedGenre, setSelectedGenre] = useState(""); // Add state for the genre filter
 
   useEffect(() => {
-
-
     if (storedUser && storedToken) {
       setUser(storedUser);
       setToken(storedToken);
@@ -39,7 +38,6 @@ export const MainView = () => {
     })
     .then(response => {
       if (response.data.user) {
-        // Store user data and token in localStorage
         setUser(response.data.user);
         setToken(response.data.token);
         localStorage.setItem('user', JSON.stringify(response.data.user));
@@ -74,7 +72,6 @@ export const MainView = () => {
   };
 
   const onFavorite = (movieId) => {
-    // Add the movie to the user's favorites
     const updatedUser = {
       ...user,
       favoriteMovies: [...user.favoriteMovies, movieId]
@@ -82,7 +79,6 @@ export const MainView = () => {
     setUser(updatedUser);
     localStorage.setItem('user', JSON.stringify(updatedUser));
 
-    // You would also typically make a request to update the user's favorites on the server
     axios.post(`https://glacial-retreat-35130-2f56298b8e37.herokuapp.com/users/${user.username}/movies/${movieId}`, {}, {
       headers: { Authorization: `Bearer ${token}` }
     })
@@ -90,7 +86,6 @@ export const MainView = () => {
   };
 
   const onRemoveFavorite = (movieId) => {
-    // Remove the movie from the user's favorites
     const updatedUser = {
       ...user,
       favoriteMovies: user.favoriteMovies.filter(id => id !== movieId)
@@ -98,34 +93,64 @@ export const MainView = () => {
     setUser(updatedUser);
     localStorage.setItem('user', JSON.stringify(updatedUser));
 
-    // You would also typically make a request to update the user's favorites on the server
     axios.delete(`https://glacial-retreat-35130-2f56298b8e37.herokuapp.com/users/${user.username}/movies/${movieId}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
     .catch(error => console.error('Error removing favorite:', error));
   };
 
+  // Filter movies based on selected genre
+  const filteredMovies = selectedGenre
+    ? movies.filter(movie => movie.genre.includes(selectedGenre))
+    : movies;
+
+
+  console.log('Filtered movies:', filteredMovies); // Check if this is an empty array or contains movies
+
+
+
   return (
     <Router>
-      <NavigationBar user={user} onLoggedOut={handleLogout}  />
+      <NavigationBar user={user} onLoggedOut={handleLogout} />
       <Container>
         <Row>
           <Routes>
             <Route path="/" element={
               user ? (
                 movies.length > 0 ? (
-                  <Row>
-                    {movies.map(movie => (
-                      <Col md={4} key={movie._id}>
-                        <MovieCard
-                          movie={movie}
-                          onFavorite={onFavorite}
-                          onRemoveFavorite={onRemoveFavorite}
-                          isFavorite={user.favoriteMovies?.includes(movie._id)}
-                        />
+                  <>
+                    {/* Add dropdown for filtering movies by genre */}
+                    <Row>
+                      <Col md={12}>
+                      <select onChange={(e) => setSelectedGenre(e.target.value)}>
+                          <option value="">All Genres</option>
+                          <option value="Action">Action</option>
+                          <option value="Drama">Drama</option>
+                          <option value="Adventure">Adventure</option>
+                          <option value="Biography">Biography</option>
+                          <option value="Crime">Crime</option>
+                          <option value="Sci-Fi">Sci-Fi</option>
+                          <option value="Thriller">Thriller</option>
+                          
+                          
+                        </select>
                       </Col>
-                    ))}
-                  </Row>
+                    </Row>
+
+                    {/* Display filtered movies */}
+                    <Row>
+                      {filteredMovies.map(movie => (
+                        <Col md={4} key={movie._id}>
+                          <MovieCard
+                            movie={movie}
+                            onFavorite={onFavorite}
+                            onRemoveFavorite={onRemoveFavorite}
+                            isFavorite={user.favoriteMovies?.includes(movie._id)}
+                          />
+                        </Col>
+                      ))}
+                    </Row>
+                  </>
                 ) : (
                   <p>Loading movies...</p>
                 )
@@ -134,23 +159,11 @@ export const MainView = () => {
               )
             } />
             <Route path="/login" element={
-                            user ? (
-                              <Navigate to="/" />
-                            )  :  (
-                              <Col md={5}>
-                                <LoginView
-                                  onLogin={handleLogin}
-                                />
-                              </Col>
-                            )
+              user ? <Navigate to="/" /> : <Col md={5}><LoginView onLogin={handleLogin} /></Col>
             } />
             <Route path="/signup" element={<SignupView onSignup={handleSignup} />} />
             <Route path="/movies/:movieId" element={
-              user ? (
-                <MovieView movies={movies} />
-              ) : (
-                <Navigate to="/login" replace />
-              )
+              user ? <MovieView movies={movies} /> : <Navigate to="/login" replace />
             } />
             <Route path="/profile" element={
               user ? (
@@ -161,9 +174,7 @@ export const MainView = () => {
                   onFavorite={onFavorite}
                   onRemoveFavorite={onRemoveFavorite}
                 />
-              ) : (
-                <Navigate to="/login" replace />
-              )
+              ) : <Navigate to="/login" replace />
             } />
           </Routes>
         </Row>
