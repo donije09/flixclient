@@ -29,7 +29,7 @@
 80C:\Users\ustin\Desktop\flixclient\node_modules\@swc\helpers\cjs\_ts_decorate.cjs133688857097835206 0
 75C:\Users\ustin\Desktop\flixclient\node_modules\lightningcss\node\index.d.ts133688857087563579 0
 76C:\Users\ustin\Desktop\flixclient\node_modules\react-bootstrap\AccordionBody133688857106247219 1
-46C:\Users\ustin\Desktop\flixclient\package.json133688842455599187 0
+46C:\Users\ustin\Desktop\flixclient\package.json133688858834076284 0
 75C:\Users\ustin\Desktop\flixclient\node_modules\react-bootstrap\esm\Stack.js133688857105444146 0
 44C:\Users\ustin\Desktop\flixclient\.gitignore133681170828061212 0
 112C:\Users\ustin\Desktop\flixclient\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\plugins\prefixIds.js133688857092278358 0
