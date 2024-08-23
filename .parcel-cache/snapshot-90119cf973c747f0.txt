@@ -24,7 +24,7 @@
 107C:\Users\ustin\Desktop\flixclient\node_modules\htmlnano\docs\versioned_docs\version-1.1.1\060-contribute.md133688788353997183 0
 80C:\Users\ustin\Desktop\flixclient\node_modules\@swc\helpers\cjs\_ts_decorate.cjs133686721415480908 0
 91C:\Users\ustin\Desktop\flixclient\node_modules\@swc\helpers\esm\_interop_require_default.js133686721425509424 0
-38C:\Users\ustin\Desktop\flixclient\dist133688828149348196 1
+38C:\Users\ustin\Desktop\flixclient\dist133688841637342965 1
 75C:\Users\ustin\Desktop\flixclient\node_modules\electron-to-chromium\LICENSE133686721404978601 0
 72C:\Users\ustin\Desktop\flixclient\node_modules\@swc\helpers\cjs\_jsx.cjs133686721414064254 0
 44C:\Users\ustin\Desktop\flixclient\.gitignore133681170828061212 0
@@ -32,7 +32,7 @@
 76C:\Users\ustin\Desktop\flixclient\node_modules\react-bootstrap\AccordionBody133688798546682908 1
 75C:\Users\ustin\Desktop\flixclient\node_modules\lightningcss\node\index.d.ts133688788344707980 0
 75C:\Users\ustin\Desktop\flixclient\node_modules\react-bootstrap\esm\Stack.js133688798545999576 0
-46C:\Users\ustin\Desktop\flixclient\package.json133688826612499334 0
+46C:\Users\ustin\Desktop\flixclient\package.json133688841618826188 0
 95C:\Users\ustin\Desktop\flixclient\node_modules\caniuse-lite\data\features\link-rel-prerender.js133686721441193206 0
 68C:\Users\ustin\Desktop\flixclient\node_modules\htmlnano\package.json133688788350720287 0
 80C:\Users\ustin\Desktop\flixclient\node_modules\dom-helpers\position\package.json133688798543755099 0
@@ -7442,7 +7442,7 @@
 77C:\Users\ustin\Desktop\flixclient\node_modules\@restart\hooks\useCommittedRef133688798542712676 1
 57C:\Users\ustin\Desktop\flixclient\dist\index.aef50645.css133686707628377148 0
 82C:\Users\ustin\Desktop\flixclient\node_modules\@restart\hooks\esm\useBreakpoint.js133688798540647811 0
-56C:\Users\ustin\Desktop\flixclient\dist\index.b4b6dfad.js133688828149228520 0
+56C:\Users\ustin\Desktop\flixclient\dist\index.b4b6dfad.js133688841637203333 0
 90C:\Users\ustin\Desktop\flixclient\node_modules\@restart\hooks\useCustomEffect\package.json133688798542752563 0
 64C:\Users\ustin\Desktop\flixclient\dist\interstellar.deca7abd.jpg133678179156524542 0
 73C:\Users\ustin\Desktop\flixclient\node_modules\@restart\ui\esm\NavItem.js133688798541520688 0
@@ -9124,9 +9124,6 @@
 65C:\Users\ustin\Desktop\flixclient\node_modules\ieee754\index.d.ts133688799342449727 0
 66C:\Users\ustin\Desktop\flixclient\node_modules\buffer\package.json133688799342690081 0
 64C:\Users\ustin\Desktop\flixclient\node_modules\buffer\AUTHORS.md133688799342700087 0
-49C:\Users\ustin\Desktop\flixclient\dist\index.html133688826628453704 0
-57C:\Users\ustin\Desktop\flixclient\dist\index.2212206d.css133688826629366452 0
-61C:\Users\ustin\Desktop\flixclient\dist\index.2212206d.css.map133688826629446232 0
 56C:\Users\ustin\Desktop\flixclient\node_modules\immutable133688826993493632 1
 55C:\Users\ustin\Desktop\flixclient\node_modules\chokidar133688826993583428 1
 55C:\Users\ustin\Desktop\flixclient\node_modules\anymatch133688826992368471 1
@@ -9196,4 +9193,7 @@
 81C:\Users\ustin\Desktop\flixclient\node_modules\sass\types\logger\source_span.d.ts133688826995861121 0
 56C:\Users\ustin\Desktop\flixclient\node_modules\.bin\sass133688826995960872 0
 60C:\Users\ustin\Desktop\flixclient\node_modules\.bin\sass.cmd133688826995960872 0
-60C:\Users\ustin\Desktop\flixclient\dist\index.b4b6dfad.js.map133688828149338224 0
+49C:\Users\ustin\Desktop\flixclient\dist\index.html133688841635791996 0
+57C:\Users\ustin\Desktop\flixclient\dist\index.2212206d.css133688841636420324 0
+61C:\Users\ustin\Desktop\flixclient\dist\index.2212206d.css.map133688841636460214 0
+60C:\Users\ustin\Desktop\flixclient\dist\index.b4b6dfad.js.map133688841637323009 0
