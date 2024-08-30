@@ -13,7 +13,7 @@ export class NavigationBar extends React.Component {
           {!user && (
             <>
               <Nav.Link as={Link} to="/login">Login</Nav.Link>
-              <Nav.Link as={Link} to="/register">Signup</Nav.Link>
+              <Nav.Link as={Link} to="/signup">Signup</Nav.Link>
             </>
           )}
           {user && (
