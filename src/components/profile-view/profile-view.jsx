@@ -2,16 +2,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { MovieCard } from '../movie-card/movie-card';
-
 export const ProfileView = ({ user, setUser, movies, onFavorite, onRemoveFavorite }) => {
   const [username, setUsername] = useState(user.username);
   const [email, setEmail] = useState(user.email);
   const [password, setPassword] = useState('');
   const [birthday, setBirthday] = useState(user.birthday);
-
   const handleUpdate = (event) => {
     event.preventDefault();
-
     const token = localStorage.getItem('token');
     const updatedUser = {
       username,
@@ -19,7 +16,6 @@ export const ProfileView = ({ user, setUser, movies, onFavorite, onRemoveFavorit
       password,
       birthday
     };
-
     axios.put(`https://glacial-retreat-35130-2f56298b8e37.herokuapp.com/users/${user.username}`, updatedUser, {
       headers: { Authorization: `Bearer ${token}` }
     })
@@ -30,15 +26,12 @@ export const ProfileView = ({ user, setUser, movies, onFavorite, onRemoveFavorit
     })
     .catch(error => console.error('Error updating user:', error));
   };
-
   if (!user) {
     return <h1>LOGIN AGAIN</h1>; // Handle the case where user is null
   }
-
   const favoriteMovies = Array.isArray(user.favoriteMovies)
     ? movies.filter(m => user.favoriteMovies.includes(m._id))
     : [];
-
   return (
     <div>
       <h2>Profile</h2>
