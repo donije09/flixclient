@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
 export const MovieCard = ({ movie, onFavorite, onRemoveFavorite, isFavorite }) => (
   <Card>
     <Card.Img variant="top" src={movie.imagePath} />
