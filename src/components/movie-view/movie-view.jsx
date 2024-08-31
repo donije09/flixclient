@@ -1,14 +1,11 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { useParams, useNavigate } from 'react-router-dom';
-
 export const MovieView = ({ movies }) => {
   const { movieId } = useParams();
   const navigate = useNavigate();
   const movie = movies.find(m => m._id === movieId);
-
   if (!movie) return <div>Loading...</div>;
-
   return (
     <div>
       <Card>
