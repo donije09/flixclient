@@ -8,21 +8,17 @@ import { LoginView } from '../login-view/login-view';
 import { SignupView } from '../signup-view/signup-view';
 import { ProfileView } from '../profile-view/profile-view';
 import { NavigationBar } from '../navigation-bar/navigation-bar';
-
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem('user'));
   const storedToken = localStorage.getItem('token');
-  
   const [movies, setMovies] = useState([]);
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
   const [selectedGenre, setSelectedGenre] = useState(""); // Add state for the genre filter
-
   useEffect(() => {
     if (storedUser && storedToken) {
       setUser(storedUser);
       setToken(storedToken);
-
       axios.get('https://glacial-retreat-35130-2f56298b8e37.herokuapp.com/movies', {
         headers: { Authorization: `Bearer ${storedToken}` }
       })
@@ -30,7 +26,6 @@ export const MainView = () => {
       .catch(error => console.error('Error fetching movies:', error));
     }
   }, []);
-
   const handleLogin = (username, password) => {
     axios.post('https://glacial-retreat-35130-2f56298b8e37.herokuapp.com/login', {
       username,
@@ -51,7 +46,6 @@ export const MainView = () => {
       alert('Login failed. Please check your username and password.');
     });
   };
-
   const handleSignup = (user) => {
     axios.post('https://glacial-retreat-35130-2f56298b8e37.herokuapp.com/users', user)
       .then(response => {
@@ -62,7 +56,6 @@ export const MainView = () => {
         alert('Signup failed.');
       });
   };
-
   const handleLogout = () => {
     setUser(null);
     setToken(null);
@@ -70,7 +63,6 @@ export const MainView = () => {
     localStorage.removeItem('user');
     window.location.href ="/login";
   };
-
   const onFavorite = (movieId) => {
     const updatedUser = {
       ...user,
@@ -84,7 +76,6 @@ export const MainView = () => {
     })
     .catch(error => console.error('Error adding favorite:', error));
   };
-
   const onRemoveFavorite = (movieId) => {
     const updatedUser = {
       ...user,
@@ -98,17 +89,11 @@ export const MainView = () => {
     })
     .catch(error => console.error('Error removing favorite:', error));
   };
-
   // Filter movies based on selected genre
   const filteredMovies = selectedGenre
     ? movies.filter(movie => movie.genre.includes(selectedGenre))
     : movies;
-
-
   console.log('Filtered movies:', filteredMovies); // Check if this is an empty array or contains movies
-
-
-
   return (
     <Router>
       <NavigationBar user={user} onLoggedOut={handleLogout} />
@@ -131,12 +116,9 @@ export const MainView = () => {
                           <option value="Crime">Crime</option>
                           <option value="Sci-Fi">Sci-Fi</option>
                           <option value="Thriller">Thriller</option>
-                          
-                          
                         </select>
                       </Col>
                     </Row>
-
                     {/* Display filtered movies */}
                     <Row>
                       {filteredMovies.map(movie => (
