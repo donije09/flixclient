@@ -1,11 +1,9 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
 export class NavigationBar extends React.Component {
   render() {
     const { user, onLoggedOut } = this.props;
-
     return (
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand as={Link} to="/">myFlix</Navbar.Brand>
