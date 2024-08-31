@@ -1,19 +1,15 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
-
 export const SignupView = ({ onSignup, onSwitchToLogin }) => {
   const [user, setUser] = useState({ username: '', password: '', email: '', birthday: '' });
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
   };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     onSignup(user);
   };
-
   return (
     <Form onSubmit={handleSubmit}>
       <h1>Sign Up</h1>
@@ -27,7 +23,6 @@ export const SignupView = ({ onSignup, onSwitchToLogin }) => {
           required
         />
       </Form.Group>
-
       <Form.Group controlId="formPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control
@@ -38,7 +33,6 @@ export const SignupView = ({ onSignup, onSwitchToLogin }) => {
           required
         />
       </Form.Group>
-
       <Form.Group controlId="formEmail">
         <Form.Label>Email</Form.Label>
         <Form.Control
@@ -49,7 +43,6 @@ export const SignupView = ({ onSignup, onSwitchToLogin }) => {
           required
         />
       </Form.Group>
-
       <Form.Group controlId="formBirthday">
         <Form.Label>Birthday</Form.Label>
         <Form.Control
@@ -59,7 +52,6 @@ export const SignupView = ({ onSignup, onSwitchToLogin }) => {
           onChange={handleChange}
         />
       </Form.Group>
-
       <Button variant="primary" type="submit">Sign Up</Button>
       <Button variant="link" onClick={onSwitchToLogin}>Login</Button>
     </Form>
