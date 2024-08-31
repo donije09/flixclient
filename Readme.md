@@ -35,5 +35,5 @@
 ## Links
 - **Frontend Github Repo:**[flixClient](https://github.com/donije09/flixclient)
 - **Backend Github repo:**[movieAPI](https://github.com/donije09/movieAPI)
-- **Hosted Version:** [Netlify]
+- **Hosted Version:** [Netlify}(https://lovely-torrone-85995d.netlify.app/login)
 
